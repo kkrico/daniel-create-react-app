@@ -14,6 +14,6 @@ if (program.args.length > 0) {
     build(program.args[0]);
 } else if (program.args.length < 1) {
     console.log('----------------------------------------------------------');
-    console.log(chalk.red('Please supply a name for your new React Redux app structure'));
+    console.log(chalk.red('Insira o nome da aplicação'));
     console.log('----------------------------------------------------------');
 }
