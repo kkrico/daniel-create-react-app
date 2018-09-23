@@ -1,0 +1,18 @@
+{
+  "name": "daniel-create-react-app",
+  "version": "0.1.0",
+  "description": "Bootstrapper inspirado no create-react-app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react",
+    "create-react-app",
+    "template"
+  ],
+  "author": "Daniel Ramos",
+  "license": "ISC",
+  "bin": {
+    "daniel-create-react-app": "./cli/cli.js"
+  }
+}
