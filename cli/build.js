@@ -27,7 +27,7 @@ const showIntro = () => {
 }
 const installPackages = (appName) => {
     console.log("Instalando create-react-app");
-    console.log('----------------------------------------------------------');
+    spinner.start();
 
     return new Promise((resolve, reject) => {
         let command = 'yarn';
@@ -38,8 +38,9 @@ const installPackages = (appName) => {
             if (code !== 0) {
                 throw new Error();
             }
-
-            console.log("\nInstalando pacotes necessários");
+            
+            console.log('----------------------------------------------------------');
+            console.log("Instalando pacotes necessários");
             const child = spawn(command, args, { stdio: 'inherit' });
             child.on('close', code => {
                 if (code !== 0) {
@@ -49,7 +50,8 @@ const installPackages = (appName) => {
 
                     return;
                 }
-
+                
+                console.log('----------------------------------------------------------');
                 console.log("Instalando pacotes terceiros");
                 cd(pwd() + "\\" + appName);
                 const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik"]);

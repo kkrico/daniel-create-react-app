@@ -9,6 +9,5 @@ var spinner = new Spinner({
     }
 });
 spinner.setSpinnerString('|/-\\');
-spinner.start();
 
 module.exports = spinner;
