@@ -87,7 +87,7 @@ const build = (appName) => {
             console.log('----------------------------------------------------------');
             console.log(chalk.white.bold('Vamos começar:'));
             console.log();
-            console.log(chalk.green('1: Nave até a pasta usando cd ' + appName));
+            console.log(chalk.green('1: Navegue até a pasta usando cd ' + appName));
             console.log(chalk.green('2: rode "yarn start"'));
             console.log('----------------------------------------------------------');
             console.log(chalk.white('Para mais detalhes, favor entrar em contato'));
