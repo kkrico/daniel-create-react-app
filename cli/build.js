@@ -39,7 +39,7 @@ const installPackages = (appName) => {
                 throw new Error();
             }
             
-            console.log('----------------------------------------------------------');
+            console.log('\n----------------------------------------------------------');
             console.log("Instalando pacotes obrigatórios");
             const child = spawn(command, args, { stdio: 'inherit' });
             child.on('close', code => {
@@ -51,7 +51,7 @@ const installPackages = (appName) => {
                     return;
                 }
                 
-                console.log('----------------------------------------------------------');
+                console.log('\n----------------------------------------------------------');
                 console.log("Instalando pacotes adicionais");
                 cd(pwd() + "\\" + appName);
                 const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik"]);
@@ -62,7 +62,7 @@ const installPackages = (appName) => {
                         })
                     }
 
-                    console.log('----------------------------------------------------------');
+                    console.log('\n----------------------------------------------------------');
                     console.log("Todos os pacotes foram instalados com sucesso");
                     spinner.stop(false);
                     resolve();
@@ -88,7 +88,7 @@ const build = (appName) => {
             console.log(chalk.white.bold('Vamos começar:'));
             console.log();
             console.log(chalk.green('1: Nave até a pasta usando cd ' + appName));
-            console.log(chalk.green('2: rode "npm start"'));
+            console.log(chalk.green('2: rode "yarn start"'));
             console.log('----------------------------------------------------------');
             console.log(chalk.white('Para mais detalhes, favor entrar em contato'));
             console.log('----------------------------------------------------------');
