@@ -9,21 +9,22 @@ const spinner = require("./loading");
 
 const showIntro = () => {
 
-    console.log("                                                                                                 ");
-    console.log("██████╗ █████╗ ███████╗███████╗██╗                                                               ");
-    console.log("██╔════╝██╔══██╗██╔════╝██╔════╝██║                                                              ");
-    console.log("██║     ███████║███████╗███████╗██║                                                              ");
-    console.log("██║     ██╔══██║╚════██║╚════██║██║                                                              ");
-    console.log("╚██████╗██║  ██║███████║███████║██║                                                              ");
-    console.log(" ╚═════╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝                                                              ");
-    console.log("                                                                                                 ");
-    console.log("██████╗ ██████╗  ██████╗      ██╗███████╗████████╗ ██████╗ ███████╗    ██╗    ██╗███████╗██████╗ ");
-    console.log("██╔══██╗██╔══██╗██╔═══██╗     ██║██╔════╝╚══██╔══╝██╔═══██╗██╔════╝    ██║    ██║██╔════╝██╔══██╗");
-    console.log("██████╔╝██████╔╝██║   ██║     ██║█████╗     ██║   ██║   ██║███████╗    ██║ █╗ ██║█████╗  ██████╔╝");
-    console.log("██╔═══╝ ██╔══██╗██║   ██║██   ██║██╔══╝     ██║   ██║   ██║╚════██║    ██║███╗██║██╔══╝  ██╔══██╗");
-    console.log("██║     ██║  ██║╚██████╔╝╚█████╔╝███████╗   ██║   ╚██████╔╝███████║    ╚███╔███╔╝███████╗██████╔╝");
-    console.log("╚═╝     ╚═╝  ╚═╝ ╚═════╝  ╚════╝ ╚══════╝   ╚═╝    ╚═════╝ ╚══════╝     ╚══╝╚══╝ ╚══════╝╚═════╝ ");
-    console.log("                                                                                                 ");
+    console.log();
+    console.log("██████╗  █████╗ ███╗   ██╗██╗███████╗██╗                                                                                 ");
+    console.log("██╔══██╗██╔══██╗████╗  ██║██║██╔════╝██║                                                                                 ");
+    console.log("██║  ██║███████║██╔██╗ ██║██║█████╗  ██║                                                                                 ");
+    console.log("██║  ██║██╔══██║██║╚██╗██║██║██╔══╝  ██║                                                                                 ");
+    console.log("██████╔╝██║  ██║██║ ╚████║██║███████╗███████╗                                                                            ");
+    console.log("╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚══════╝╚══════╝                                                                            ");
+    console.log("                                                                                                                         ");
+    console.log(" ██████╗██████╗ ███████╗ █████╗ ████████╗███████╗    ██████╗ ███████╗ █████╗  ██████╗████████╗    █████╗ ██████╗ ██████╗ ");
+    console.log("██╔════╝██╔══██╗██╔════╝██╔══██╗╚══██╔══╝██╔════╝    ██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝   ██╔══██╗██╔══██╗██╔══██╗");
+    console.log("██║     ██████╔╝█████╗  ███████║   ██║   █████╗█████╗██████╔╝█████╗  ███████║██║        ██║█████╗███████║██████╔╝██████╔╝");
+    console.log("██║     ██╔══██╗██╔══╝  ██╔══██║   ██║   ██╔══╝╚════╝██╔══██╗██╔══╝  ██╔══██║██║        ██║╚════╝██╔══██║██╔═══╝ ██╔═══╝ ");
+    console.log("╚██████╗██║  ██║███████╗██║  ██║   ██║   ███████╗    ██║  ██║███████╗██║  ██║╚██████╗   ██║      ██║  ██║██║     ██║     ");
+    console.log(" ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝   ╚═╝   ╚══════╝    ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝      ╚═╝  ╚═╝╚═╝     ╚═╝     ");
+    console.log("                                                                                                                         ");
+
 }
 const installPackages = (appName) => {
     console.log("Instalando create-react-app");
@@ -38,7 +39,7 @@ const installPackages = (appName) => {
             if (code !== 0) {
                 throw new Error();
             }
-            
+
             console.log('\n----------------------------------------------------------');
             console.log("Instalando pacotes obrigatórios");
             const child = spawn(command, args, { stdio: 'inherit' });
@@ -50,11 +51,11 @@ const installPackages = (appName) => {
 
                     return;
                 }
-                
+
                 console.log('\n----------------------------------------------------------');
                 console.log("Instalando pacotes adicionais");
                 cd(pwd() + "\\" + appName);
-                const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik"]);
+                const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik", "yup@0.23.0"]);
                 pkgs.on("close", (code, a) => {
                     if (code != 0) {
                         reject({
@@ -90,7 +91,7 @@ const build = (appName) => {
             console.log(chalk.green('1: Navegue até a pasta usando cd ' + appName));
             console.log(chalk.green('2: rode "yarn start"'));
             console.log('----------------------------------------------------------');
-            console.log(chalk.white('Para mais detalhes, favor entrar em contato'));
+            console.log(chalk.white('Para mais detalhes, favor abrir uma issue'));
             console.log('----------------------------------------------------------');
         })
         .catch(error => {
