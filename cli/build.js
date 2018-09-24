@@ -40,7 +40,7 @@ const installPackages = (appName) => {
             }
             
             console.log('----------------------------------------------------------');
-            console.log("Instalando pacotes necessários");
+            console.log("Instalando pacotes obrigatórios");
             const child = spawn(command, args, { stdio: 'inherit' });
             child.on('close', code => {
                 if (code !== 0) {
@@ -52,7 +52,7 @@ const installPackages = (appName) => {
                 }
                 
                 console.log('----------------------------------------------------------');
-                console.log("Instalando pacotes terceiros");
+                console.log("Instalando pacotes adicionais");
                 cd(pwd() + "\\" + appName);
                 const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik"]);
                 pkgs.on("close", (code, a) => {
@@ -87,7 +87,7 @@ const build = (appName) => {
             console.log('----------------------------------------------------------');
             console.log(chalk.white.bold('Vamos começar:'));
             console.log();
-            console.log(chalk.green('1: cd dentro da pasta ' + appName));
+            console.log(chalk.green('1: Nave até a pasta usando cd ' + appName));
             console.log(chalk.green('2: rode "npm start"'));
             console.log('----------------------------------------------------------');
             console.log(chalk.white('Para mais detalhes, favor entrar em contato'));
