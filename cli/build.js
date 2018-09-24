@@ -62,7 +62,8 @@ const installPackages = (appName) => {
                         })
                     }
 
-                    console.log("Pacotes instalados com sucesso");
+                    console.log('----------------------------------------------------------');
+                    console.log("Todos os pacotes foram instalados com sucesso");
                     spinner.stop(false);
                     resolve();
                 })
