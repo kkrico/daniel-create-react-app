@@ -34,7 +34,7 @@ const installPackages = (appName) => {
         let command = 'yarn';
         let args = ['install'];
         spinner.setT
-        const createReactApp = spawn(command, ["create", "react-app", appName]);
+        const createReactApp = spawn(command, ["create", "react-app","--scripts-version", "daniel-react-scripts", appName]);
         createReactApp.on("close", code => {
             if (code !== 0) {
                 throw new Error();
