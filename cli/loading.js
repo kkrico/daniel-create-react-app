@@ -1,8 +1,14 @@
-const loading = require('loading-cli');
-const load = loading({
-    text: "Carregando",
-    frames: ["◰", "◳", "◲", "◱"],
-    stream: process.stdout,
-}).start();
+var Spinner = require('cli-spinner').Spinner;
 
-module.exports = load;
+var spinner = new Spinner({
+    text: 'Processando... %s',
+    stream: process.stdout,
+    onTick: function (msg) {
+        this.clearLine(this.stream);
+        this.stream.write(msg);
+    }
+});
+spinner.setSpinnerString('|/-\\');
+spinner.start();
+
+module.exports = spinner;
