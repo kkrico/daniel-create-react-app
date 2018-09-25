@@ -33,8 +33,8 @@ const installPackages = (appName) => {
     return new Promise((resolve, reject) => {
         let command = 'yarn';
         let args = ['install'];
-        
-        const createReactApp = spawn(command, ["create", "react-app","--scripts-version", "daniel-react-scripts", appName]);
+
+        const createReactApp = spawn(command, ["create", "react-app", "--scripts-version", "daniel-react-scripts", appName]);
         createReactApp.on("close", code => {
             if (code !== 0) {
                 throw new Error();
@@ -42,6 +42,7 @@ const installPackages = (appName) => {
 
             console.log('\n----------------------------------------------------------');
             console.log("Instalando pacotes obrigatórios");
+            cd(pwd() + "\\" + appName);
             const child = spawn(command, args, { stdio: 'inherit' });
             child.on('close', code => {
                 if (code !== 0) {
@@ -54,8 +55,7 @@ const installPackages = (appName) => {
 
                 console.log('\n----------------------------------------------------------');
                 console.log("Instalando pacotes adicionais");
-                cd(pwd() + "\\" + appName);
-                const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik", "yup@0.23.0"]);
+                const pkgs = spawn(command, ["add", "react-bootstrap", "react-redux", "react-router", "react-router-dom", "redux", "redux-thunk", "@babel/polyfill", "prop-types", "formik", "yup@0.23.0", "daniel-common"]);
                 pkgs.on("close", (code, a) => {
                     if (code != 0) {
                         reject({
