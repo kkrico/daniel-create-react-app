@@ -33,7 +33,7 @@ const installPackages = (appName) => {
     return new Promise((resolve, reject) => {
         let command = 'yarn';
         let args = ['install'];
-        spinner.setT
+        
         const createReactApp = spawn(command, ["create", "react-app","--scripts-version", "daniel-react-scripts", appName]);
         createReactApp.on("close", code => {
             if (code !== 0) {
