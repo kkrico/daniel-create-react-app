@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import postReducer from "./postReducer";
-import loadingReducer from 'daniel-common/reducers/loadingReducer';
+import ajaxStatus from 'daniel-common/ajaxStatus/ajaxStatusReducer';
 
 const rootReducer = combineReducers({
     post: postReducer,
-    loading : loadingReducer
+    ajaxStatusCounter : ajaxStatus
 });
 
 export default rootReducer;

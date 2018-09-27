@@ -1,4 +1,7 @@
 export default {
-    post: [],
-    loading: false
+    post: {
+        posts: [],
+        postParaEdicao: {}
+    },
+    ajaxStatus: 0
 }

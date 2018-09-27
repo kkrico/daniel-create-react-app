@@ -2,29 +2,37 @@ import { connect } from 'react-redux';
 import React from 'react';
 import * as postsActions from "../actions/PostActions";
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
+import withLoading from 'daniel-common/components/loading/WithLoading';
+
+const innerPostPage = (props) => {
+    return (<React.Fragment>
+        {props.posts.map(post => {
+            return <p key={post.id}>{post.body}
+                <Link to={"/gerenciar/" + post.id}>
+                    Editar
+                                <i className="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </Link>
+            </p>
+        })}
+    </React.Fragment>)
+}
 
 class PostsPage extends React.Component {
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.loadAllPosts();
     }
 
     render() {
-        if (this.props.isLoading) {
-            return (<h1>Loading...</h1>)
-        } else {
-            return (<React.Fragment>
-                {this.props.posts.map(post => {
-                    return <p>{post.body}</p>
-                })}
-            </React.Fragment>)
-        }
+        return withLoading(innerPostPage)(this.props);
     }
 }
 
 const mapStateToProps = (state, ownProps) => {
+    console.log(state.ajaxStatusCounter);
     return {
-        posts: state.post,
-        isLoading: state.loading
+        posts: state.post.posts,
+        isLoading: state.ajaxStatusCounter > 0
     }
 }
 const mapDispatchToProps = (dispatch) => {
